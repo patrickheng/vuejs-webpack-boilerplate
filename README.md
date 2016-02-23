@@ -1,6 +1,6 @@
 # VueJs Boilerplate - Babel / Webpack / Sass
 
-[WIP] My boilerplate for my vue.js projects.
+![Banner](http://img15.hostingpics.net/thumbs/mini_691935vuejs4650x270.png)
 
 #### TECHNOLOGIES
 
