@@ -6,6 +6,9 @@ import domready from 'domready';
 
 import 'gsap';
 
+// Routes
+import HomepageComponent from 'containers/homepage';
+
 Vue.use(Router);
 
 class Main {
@@ -42,11 +45,7 @@ class Main {
 
       '*': {
         name: "home",
-        component: require('./containers/homepage/index.js').default
-      },
-      '/home' : {
-        name: "home",
-        component: require('./containers/homepage/index.js').default
+        component: HomepageComponent
       }
     });
 
