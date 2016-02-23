@@ -31,4 +31,4 @@ The project will be launched at http://localhost:3000/
 
 Hope you like it ¯\_(ツ)_/¯
 
-![Gif](https://media.giphy.com/media/7e0EvlBD7nxZu/giphy.gif)
+![Gif](https://media.giphy.com/media/SGjUlcZYnFs6Q/giphy.gif)
