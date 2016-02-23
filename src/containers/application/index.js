@@ -23,7 +23,12 @@ export default Vue.extend({
 
   ready: function() {
 
-    this.addEventListener();
+    this.addEventListeners();
+  },
+
+  beforeDestroy: function() {
+
+    this.removeEventListeners();
   },
 
   methods: {
@@ -36,10 +41,14 @@ export default Vue.extend({
       this.onResize = debounce(this.broadcastWindowSize, 200);
     },
 
-    addEventListener: function() {
+    addEventListeners: function() {
 
       // Resize
       window.addEventListener('resize', this.onResize, false);
+    },
+
+    removeEventListeners: function() {
+      window.removeEventListener('resize', this.onResize, false);
     },
 
     /*

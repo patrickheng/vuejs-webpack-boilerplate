@@ -21,7 +21,12 @@ export default Vue.extend({
 
   ready: function() {
 
-    this.addEventListener();
+    this.addEventListeners();
+  },
+
+  beforeDestroy: function() {
+
+    this.removeEventListeners();
   },
 
   methods: {
@@ -33,8 +38,12 @@ export default Vue.extend({
     bind: function() {
     },
 
-    addEventListener: function() {
+    addEventListeners: function() {
       this.$on(WINDOW_RESIZE, this.onWindowResize);
+    },
+
+    removeEventListeners: function() {
+      this.$off(WINDOW_RESIZE, this.onWindowResize);
     },
 
     onWindowResize: function(width, height) {
