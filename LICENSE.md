@@ -1,7 +1,7 @@
 The MIT License (MIT)
 =====================
 
-Copyright © 2016 Jantana Hennard, Alexandre Delalleau, Fabien Motte, Heng Patrick
+Copyright © 2016 Heng Patrick
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
