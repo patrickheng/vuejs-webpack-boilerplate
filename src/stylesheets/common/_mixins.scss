@@ -59,3 +59,12 @@
     left: 0;
   }
 }
+
+@function ease($key) {
+  @if map-has-key($ease, $key) {
+    @return map-get($ease, $key);
+  }
+
+  @warn "Unkown '#{$key}' in $ease.";
+  @return null;
+}
