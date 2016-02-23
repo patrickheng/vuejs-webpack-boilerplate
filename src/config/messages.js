@@ -1,6 +1,6 @@
 'use strict';
 
-export default {
+const messages = {
 
   /*
    * WINDOW
@@ -15,3 +15,5 @@ export default {
   ROUTER_ROUTE_CHANGE: 'ROUTER_ROUTE_CHANGE'
 
 };
+
+module.exports = messages;
