@@ -8,23 +8,23 @@ export default Vue.extend({
 
   template: require('./template.html'),
 
-  data: function() {
+  data() {
 
     return {
       _hidden: null
     };
   },
 
-  created: function() {
+  created() {
     this.bind();
   },
 
-  ready: function() {
+  ready() {
 
     this.addEventListeners();
   },
 
-  beforeDestroy: function() {
+  beforeDestroy() {
 
     this.removeEventListeners();
   },
@@ -35,18 +35,18 @@ export default Vue.extend({
      * Binding & Events
      */
 
-    bind: function() {
+    bind() {
     },
 
-    addEventListeners: function() {
+    addEventListeners() {
       this.$on(WINDOW_RESIZE, this.onWindowResize);
     },
 
-    removeEventListeners: function() {
+    removeEventListeners() {
       this.$off(WINDOW_RESIZE, this.onWindowResize);
     },
 
-    onWindowResize: function(width, height) {
+    onWindowResize(width, height) {
     }
 
   },
