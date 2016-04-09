@@ -1,6 +1,11 @@
 import VueRouter from 'vue-router';
+import Emitter from 'core/Emitter';
 
-import HomepageComponent from 'containers/homepage';
+import HomePageComponent from 'containers/Homepage';
+
+import {
+  ROUTER_ROUTE_CHANGE
+} from 'config/messages';
 
 Vue.use(VueRouter);
 
@@ -17,31 +22,23 @@ class Router extends VueRouter {
       transitionOnLoad: false
     });
 
+    this.path = '/';
+    this.firstRoute = true;
+    this.routeTimeout = null;
+
+
     this.map({
 
       '*': {
         name: "home",
-        component: HomepageComponent
+        component: HomePageComponent
       }
-    });
 
-    this.beforeEach( ({ to, from, abort, next }) => {
-
-      if (to.path === from.path && to.path !== '/') {
-
-        console.warn('Router: Same route path : ', to, from);
-
-        abort();
-
-      } else {
-
-        next();
-      }
     });
 
     this.afterEach( ({ to, from }) => {
 
-      console.log('global afterEach : ', to, from);
+      Emitter.emit(ROUTER_ROUTE_CHANGE, { to, from });
 
     });
   }

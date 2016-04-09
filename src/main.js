@@ -1,10 +1,10 @@
-import Application from './containers/application';
+import Application from 'containers/Application';
 
-import domready from 'domready';
-
-import Router from './router';
+import Router from 'core/Router';
 
 import 'stylesheets/main.scss';
+
+import domready from 'domready';
 
 class Main {
 

@@ -1,8 +1,13 @@
 'use strict';
 
+import './styles.scss';
+
+import Emitter from 'core/Emitter';
+
 import {
-	WINDOW_RESIZE
-} from '../../config/messages';
+  WINDOW_RESIZE
+} from 'config/messages';
+
 
 export default Vue.extend({
 
@@ -22,6 +27,7 @@ export default Vue.extend({
   ready() {
 
     this.addEventListeners();
+
   },
 
   beforeDestroy() {
@@ -32,29 +38,30 @@ export default Vue.extend({
   methods: {
 
     /*
-     * Binding & Events
-     */
+    * Binding & Events
+    */
 
     bind() {
     },
 
     addEventListeners() {
-      this.$on(WINDOW_RESIZE, this.onWindowResize);
+      Emitter.on(WINDOW_RESIZE, this.onWindowResize);
     },
 
     removeEventListeners() {
-      this.$off(WINDOW_RESIZE, this.onWindowResize);
+      Emitter.off(WINDOW_RESIZE, this.onWindowResize);
     },
 
-    onWindowResize(width, height) {
-      console.log('Window resize from application.', width, height);
+    onWindowResize({width, height}) {
+      console.log(`Window resize from application with debounce -> width: ${width}px || height: ${height}`);
+    },
+
+    transitions: {
+
+    },
+
+    components: {
     }
 
-  },
-
-  transitions: {
-
-  },
-
-  components: {}
+  }
 });

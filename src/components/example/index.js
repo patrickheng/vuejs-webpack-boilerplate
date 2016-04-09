@@ -1,8 +1,6 @@
 'use strict';
 
-import {
-  WINDOW_RESIZE
-} from '../../config/messages';
+import './styles.scss';
 
 export default Vue.extend({
 
@@ -39,21 +37,14 @@ export default Vue.extend({
     },
 
     addEventListeners() {
-      this.$on(WINDOW_RESIZE, this.onWindowResize);
     },
 
     removeEventListeners() {
-      this.$off(WINDOW_RESIZE, this.onWindowResize);
-    },
-
-    onWindowResize(width, height) {
     }
 
   },
 
-  transitions: {
-
-  },
+  transitions: {},
 
   components: {}
 });

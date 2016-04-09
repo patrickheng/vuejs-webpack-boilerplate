@@ -1,5 +1,7 @@
 'use strict';
 
+import Emitter from 'core/Emitter';
+
 import debounce from 'lodash.debounce';
 
 import {
@@ -56,7 +58,10 @@ export default Vue.extend({
      */
     broadcastWindowSize() {
 
-      this.$broadcast(WINDOW_RESIZE, window.innerWidth, window.innerHeight);
+      Emitter.emit(WINDOW_RESIZE, {
+        width: window.innerWidth,
+        height:window.innerHeight
+      });
     }
   },
 
