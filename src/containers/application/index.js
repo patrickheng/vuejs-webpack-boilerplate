@@ -2,6 +2,8 @@
 
 import Emitter from 'core/Emitter';
 
+import States from 'core/States';
+
 import debounce from 'lodash.debounce';
 
 import {
@@ -26,6 +28,8 @@ export default Vue.extend({
   ready() {
 
     this.addEventListeners();
+    this.addDeviceClass();
+    this.addBrowserClass();
   },
 
   beforeDestroy() {
@@ -44,13 +48,19 @@ export default Vue.extend({
     },
 
     addEventListeners() {
-
-      // Resize
       window.addEventListener('resize', this.onResize, false);
     },
 
     removeEventListeners() {
       window.removeEventListener('resize', this.onResize, false);
+    },
+
+    addBrowserClass() {
+      this.$el.classList.add(States.browserName + '-browser');
+    },
+
+    addDeviceClass() {
+      this.$el.classList.add(States.deviceType + '-device');
     },
 
     /*
@@ -60,7 +70,7 @@ export default Vue.extend({
 
       Emitter.emit(WINDOW_RESIZE, {
         width: window.innerWidth,
-        height:window.innerHeight
+        height: window.innerHeight
       });
     }
   },
