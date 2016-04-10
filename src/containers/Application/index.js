@@ -73,13 +73,5 @@ export default Vue.extend({
         height: window.innerHeight
       });
     }
-  },
-
-  transitions: {
-
-  },
-
-  components: {
-
   }
 });

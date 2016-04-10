@@ -1,6 +1,21 @@
 @import '../../stylesheets/common/variables';
+@import '../../stylesheets/common/mixins';
 
-body {
+.homepage {
+  text-align: center;
+}
 
-  background: $color-white;
+.homepage__title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: $color-green;
+}
+
+.homepage__paragraph {
+  font-size: 1.4rem;
+  margin-top: 1rem;
+}
+
+.homepage__content {
+  @include centerXY;
 }

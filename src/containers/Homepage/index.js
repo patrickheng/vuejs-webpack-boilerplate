@@ -8,6 +8,7 @@ import {
   WINDOW_RESIZE
 } from 'config/messages';
 
+import ExampleComponent from 'components/Example';
 
 export default Vue.extend({
 
@@ -56,12 +57,13 @@ export default Vue.extend({
       console.log(`Window resize from application with debounce -> width: ${width}px || height: ${height}`);
     },
 
-    transitions: {
+  },
 
-    },
+  transitions: {
 
-    components: {
-    }
+  },
 
+  components: {
+    'example-component': ExampleComponent
   }
 });

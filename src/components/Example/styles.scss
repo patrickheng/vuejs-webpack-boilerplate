@@ -1,5 +1,6 @@
-// @import 'stylesheets/variables';
+@import '../../stylesheets/common/variables';
 
 .example {
-  background: black;
+  display: inline-block;
+  margin-top: 3rem;
 }
