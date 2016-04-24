@@ -54,9 +54,11 @@ export default Vue.extend({
     },
 
     onWindowResize({width, height}) {
+      /*eslint-disable */
       console.log(`Window resize from application with debounce -> width: ${width}px || height: ${height}`);
-    },
-
+      /*eslint-enable */
+    }
+    
   },
 
   transitions: {
