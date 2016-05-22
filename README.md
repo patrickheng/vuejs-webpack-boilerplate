@@ -20,7 +20,7 @@ Here is my VueJs Boilerplate.
 
 EventManagerMixin handle Emitter events and DOM events easily. It will auto bind the context, and dettach the event when the component will unmount.
 
-If you want to use my EventManager mixin need to define emitterEvents / domEvents in your vue component like so :
+If you want to use my EventManager mixin, you need to define emitterEvents / domEvents in your vue component like so :
 
 ```
 export default Vue.extend({
@@ -35,7 +35,7 @@ export default Vue.extend({
 
   domEvents: [{
     target: document, // DOM element to attach the event
-    events: 'mousemove', // Event type
+    event: 'mousemove', // Event type
     method: 'handleDocumentMouseMove' // Name of the method
   }],
 
