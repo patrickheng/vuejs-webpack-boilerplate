@@ -4,6 +4,7 @@
 
 Here is my VueJs Boilerplate.
 
+
 #### TECHNOLOGIES
 
 * VueJs
@@ -13,6 +14,7 @@ Here is my VueJs Boilerplate.
 * Webpack
 * ESLint
 * SASS
+
 
 #### EventManagerMixin
 
@@ -28,7 +30,7 @@ export default Vue.extend({
   emitterEvents: [{
     message: WINDOW_RESIZE, // Event Message
     method: 'onWindowResize' // Name of the method
-    once: false, // Optional - Listence once or not, default: false
+    once: false, // Optional - Listen to the event once or not, default: false
   }],
 
   domEvents: [{
@@ -41,22 +43,27 @@ export default Vue.extend({
 }
 ```
 
+
 ##### Install dependancies :
 ```shell
   npm i
 ```
+
 
 ##### Launch the project :
 ```shell
   npm start
 ```
 
+
 The project will be launched at http://localhost:3000/
+
 
 #### Build for production :
 ```shell
   npm run build
 ```
+
 
 Hope you like it ¯\_(ツ)_/¯
 
