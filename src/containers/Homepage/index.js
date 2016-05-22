@@ -2,7 +2,7 @@
 
 import './styles.scss';
 
-import Emitter from 'core/Emitter';
+import EventManagerMixin from 'mixins/EventManagerMixin';
 
 import {
   WINDOW_RESIZE
@@ -12,7 +12,14 @@ import ExampleComponent from 'components/Example';
 
 export default Vue.extend({
 
+  mixins: [EventManagerMixin],
+
   template: require('./template.html'),
+
+  emitterEvents: [{
+    message: WINDOW_RESIZE,
+    method: 'onWindowResize'
+  }],
 
   data() {
 
@@ -22,46 +29,16 @@ export default Vue.extend({
   },
 
   created() {
-    this.bind();
-  },
 
-  ready() {
-
-    this.addEventListeners();
-
-  },
-
-  beforeDestroy() {
-
-    this.removeEventListeners();
   },
 
   methods: {
-
-    /*
-    * Binding & Events
-    */
-
-    bind() {
-    },
-
-    addEventListeners() {
-      Emitter.on(WINDOW_RESIZE, this.onWindowResize);
-    },
-
-    removeEventListeners() {
-      Emitter.off(WINDOW_RESIZE, this.onWindowResize);
-    },
 
     onWindowResize({width, height}) {
       /*eslint-disable */
       console.log(`Window resize from application with debounce -> width: ${width}px || height: ${height}`);
       /*eslint-enable */
     }
-    
-  },
-
-  transitions: {
 
   },
 

@@ -1,6 +1,6 @@
 'use strict';
 
-import Emitter from 'core/Emitter';
+import EventManagerMixin from 'mixins/EventManagerMixin';
 
 import States from 'core/States';
 
@@ -12,7 +12,17 @@ import {
 
 export default Vue.extend({
 
+  mixins: [EventManagerMixin],
+
   template: require('./template.html'),
+
+  emitterEvents: [],
+
+  domEvents: [{
+    target: window,
+    event: 'resize',
+    method: 'onResize'
+  }],
 
   data() {
 
@@ -20,39 +30,17 @@ export default Vue.extend({
     };
   },
 
-  created() {
-
-    this.bind();
-  },
-
   ready() {
 
-    this.addEventListeners();
     this.addDeviceClass();
     this.addBrowserClass();
   },
 
-  beforeDestroy() {
-
-    this.removeEventListeners();
-  },
-
   methods: {
 
-    /*
-     * Binding & Events
-     */
-
     bind() {
+
       this.onResize = debounce(this.broadcastWindowSize, 200);
-    },
-
-    addEventListeners() {
-      window.addEventListener('resize', this.onResize, false);
-    },
-
-    removeEventListeners() {
-      window.removeEventListener('resize', this.onResize, false);
     },
 
     addBrowserClass() {
@@ -67,8 +55,7 @@ export default Vue.extend({
      * Resize
      */
     broadcastWindowSize() {
-
-      Emitter.emit(WINDOW_RESIZE, {
+      this.emitter.emit(WINDOW_RESIZE, {
         width: window.innerWidth,
         height: window.innerHeight
       });

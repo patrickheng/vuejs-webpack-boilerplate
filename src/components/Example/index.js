@@ -1,11 +1,19 @@
 'use strict';
 
+import EventManagerMixin from 'mixins/EventManagerMixin';
+
 import './styles.scss';
 
 export default Vue.extend({
 
+  mixins: [ EventManagerMixin ],
+
   template: require('./template.html'),
 
+  emitterEvents: [],
+
+  domEvents: [],
+  
   data() {
 
     return {
@@ -13,36 +21,11 @@ export default Vue.extend({
     };
   },
 
-  created() {
-    this.bind();
-  },
+  ready() {},
 
-  ready() {
+  beforeDestroy() {},
 
-    this.addEventListeners();
-  },
-
-  beforeDestroy() {
-
-    this.removeEventListeners();
-  },
-
-  methods: {
-
-    /*
-     * Binding & Events
-     */
-
-    bind() {
-    },
-
-    addEventListeners() {
-    },
-
-    removeEventListeners() {
-    }
-
-  },
+  methods: {},
 
   transitions: {},
 
