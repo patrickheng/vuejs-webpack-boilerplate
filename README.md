@@ -16,7 +16,7 @@ Here is my VueJs Boilerplate.
 * SASS
 
 
-#### EventManagerMixin
+##### EventManagerMixin
 
 EventManagerMixin handle Emitter events and DOM events easily. It will auto bind the context, and dettach the event when the component will unmount.
 
@@ -59,7 +59,7 @@ export default Vue.extend({
 The project will be launched at http://localhost:3000/
 
 
-#### Build for production :
+##### Build for production :
 ```shell
   npm run build
 ```
