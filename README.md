@@ -63,8 +63,8 @@ The project will be launched at http://localhost:3000/
 ```
 
 #### CONTRIBUTORS
-* [Fabien Motte](http://example.com "Fabien Motte")
-* [Patrick Heng](http://example.com "Patrick Heng")
+* [Fabien Motte](http://fabienmotte.com "Fabien Motte")
+* [Patrick Heng](http://hengpatrick.fr "Patrick Heng")
 
 
 
