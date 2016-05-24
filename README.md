@@ -2,8 +2,6 @@
 
 ![Banner](http://i.imgur.com/kJepFbl.png)
 
-Here is my VueJs Boilerplate.
-
 
 #### TECHNOLOGIES
 
@@ -20,7 +18,7 @@ Here is my VueJs Boilerplate.
 
 EventManagerMixin handle Emitter events and DOM events easily. It will auto bind the context, and dettach the event when the component will unmount.
 
-If you want to use my EventManager mixin, you need to define emitterEvents / domEvents in your vue component like so :
+If you want to use the EventManager mixin, you need to define emitterEvents / domEvents in your vue component like so :
 
 ```
 export default Vue.extend({
@@ -63,6 +61,11 @@ The project will be launched at http://localhost:3000/
 ```shell
   npm run build
 ```
+
+#### CONTRIBUTORS
+* [Fabien Motte](http://example.com "Fabien Motte")
+* [Patrick Heng](http://example.com "Patrick Heng")
+
 
 
 Hope you like it ¯\_(ツ)_/¯
