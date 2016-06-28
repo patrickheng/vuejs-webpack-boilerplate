@@ -33,8 +33,13 @@ const EventManagerMixin = {
     bind() {
 
       this.emitterEvents.forEach((event) => {
-
-        this[event.method] = ::this[event.method];
+        if(typeof this[event.method] === 'undefined') {
+          /*eslint-disable */
+          console.error('Missing method attribute for ', this);
+          /*eslint-enable */
+        } else {
+          this[event.method] = ::this[event.method];
+        }
       });
     },
 
@@ -48,7 +53,17 @@ const EventManagerMixin = {
             this.emitter.once(emitterEvent.message, this[emitterEvent.method]);
           }
         } else {
-          this.emitter.on(emitterEvent.message, this[emitterEvent.method]);
+
+          /*eslint-disable */
+          if(typeof emitterEvent.message === 'undefined') {
+            console.error('Missing message attribute for ', emitterEvent);
+          } else if (typeof this[emitterEvent.method] === 'undefined') {
+            console.error('Missing method attribute for ', emitterEvent);
+          } else {
+            this.emitter.on(emitterEvent.message, this[emitterEvent.method]);
+          }
+          /*eslint-enable */
+
         }
       });
 
