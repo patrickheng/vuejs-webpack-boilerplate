@@ -3,6 +3,7 @@
 import './styles.scss';
 
 import EventManagerMixin from 'mixins/EventManagerMixin';
+import FadeTransitionMixin from 'mixins/FadeTransitionMixin';
 
 import {
   WINDOW_RESIZE
@@ -12,9 +13,9 @@ import ExampleComponent from 'components/Example';
 
 export default Vue.extend({
 
-  mixins: [EventManagerMixin],
+  mixins: [ EventManagerMixin, FadeTransitionMixin ],
 
-  template: require('./template.html'),
+  template: require( './template.html' ),
 
   emitterEvents: [{
     message: WINDOW_RESIZE,
@@ -34,9 +35,9 @@ export default Vue.extend({
 
   methods: {
 
-    onWindowResize({width, height}) {
+    onWindowResize( {width, height} ) {
       /*eslint-disable */
-      console.log(`Window resize from application with debounce -> width: ${width}px || height: ${height}`);
+      console.log( `Window resize from application with debounce -> width: ${width}px || height: ${ height }` );
       /*eslint-enable */
     }
 
