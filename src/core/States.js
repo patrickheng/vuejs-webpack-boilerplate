@@ -6,15 +6,15 @@ class States {
   constructor() {
 
     this.userAgent = window.navigator.userAgent;
-    this.mobileDetect = new MobileDetect(this.userAgent);
+    this.mobileDetect = new MobileDetect( this.userAgent );
     this.deviceType = this.getDeviceType();
     this.browserName = browser.name;
   }
 
   getDeviceType() {
-    if(this.mobileDetect.tablet()) {
+    if( this.mobileDetect.tablet() ) {
       return "tablet";
-    } else if (this.mobileDetect.mobile()) {
+    } else if ( this.mobileDetect.mobile() ) {
       return "mobile";
     } else {
       return "desktop";
@@ -22,7 +22,7 @@ class States {
   }
 
   isIE() {
-    return (this.userAgent.indexOf('MSIE ') > 0 || this.userAgent.indexOf('Trident/') > 0 || this.userAgent.indexOf('Edge/') > 0);
+    return ( this.userAgent.indexOf( 'MSIE ' ) > 0 || this.userAgent.indexOf( 'Trident/' ) > 0 || this.userAgent.indexOf( 'Edge/' ) > 0 );
   }
 }
 

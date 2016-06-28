@@ -7,7 +7,7 @@ import {
   ROUTER_ROUTE_CHANGE
 } from 'config/messages';
 
-Vue.use(VueRouter);
+Vue.use( VueRouter );
 
 class Router extends VueRouter {
 
@@ -36,9 +36,9 @@ class Router extends VueRouter {
 
     });
 
-    this.afterEach( ({ to, from }) => {
+    this.afterEach( ({ to, from } ) => {
 
-      Emitter.emit(ROUTER_ROUTE_CHANGE, { to, from });
+      Emitter.emit( ROUTER_ROUTE_CHANGE, { to, from } );
 
     });
   }

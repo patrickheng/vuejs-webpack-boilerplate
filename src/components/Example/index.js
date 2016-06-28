@@ -8,12 +8,12 @@ export default Vue.extend({
 
   mixins: [ EventManagerMixin ],
 
-  template: require('./template.html'),
+  template: require( './template.html' ),
 
   emitterEvents: [],
 
   domEvents: [],
-  
+
   data() {
 
     return {
@@ -22,8 +22,6 @@ export default Vue.extend({
   },
 
   ready() {},
-
-  beforeDestroy() {},
 
   methods: {},
 
