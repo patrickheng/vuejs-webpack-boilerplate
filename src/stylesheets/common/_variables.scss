@@ -2,6 +2,17 @@
 * Breakpoints
 */
 
+$bp-mobile: (min-device-width 320px) (max-device-width 736px);
+$bp-mobile-portrait: (min-device-width 320px) (max-device-width 736px) (orientation portrait);
+$bp-mobile-landscape: (min-device-width 320px) (max-device-width 736px) (orientation landscape);
+
+$bp-tablet: (min-device-width 768px) (max-device-width 1024px);
+$bp-tablet-portrait: (min-device-width 768px) (max-device-width 1024px) (orientation portrait);
+$bp-tablet-landscape: (min-device-width 768px) (max-device-width 1024px) (orientation landscape);
+
+$bp-tablet-portrait-mobile: (min-device-width 320px) (max-device-width 736px), (min-device-width 768px) (max-device-width 1024px) (orientation portrait);
+
+$bp-desktop-large: (min-width 1600px);
 
 /*
 * Ease
