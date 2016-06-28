@@ -6,11 +6,15 @@ import States from 'core/States';
 
 import debounce from 'lodash.debounce';
 
+import store from 'vuex/store';
+
 import {
   WINDOW_RESIZE
 } from 'config/messages';
 
 export default Vue.extend({
+
+  store,
 
   mixins: [EventManagerMixin],
 
@@ -55,6 +59,7 @@ export default Vue.extend({
      * Resize
      */
     broadcastWindowSize() {
+      
       this.emitter.emit(WINDOW_RESIZE, {
         width: window.innerWidth,
         height: window.innerHeight

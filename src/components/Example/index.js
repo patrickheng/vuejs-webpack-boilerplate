@@ -1,14 +1,32 @@
 'use strict';
 
+import './styles.scss';
+
 import EventManagerMixin from 'mixins/EventManagerMixin';
 
-import './styles.scss';
+import {
+  counterIncrement
+} from 'vuex/example/actions';
+
+import {
+  countExample
+} from 'vuex/example/getters';
+
 
 export default Vue.extend({
 
   mixins: [ EventManagerMixin ],
 
   template: require( './template.html' ),
+
+  vuex: {
+    getters: {
+      count: countExample
+    },
+    actions: {
+      counterIncrement
+    }
+  },
 
   emitterEvents: [],
 
@@ -21,7 +39,7 @@ export default Vue.extend({
     };
   },
 
-  ready() {},
+  ready() {console.log(count)},
 
   methods: {},
 
