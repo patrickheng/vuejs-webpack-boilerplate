@@ -1,4 +1,4 @@
-@mixin fullAbsolute {
+@mixin full-absolute {
   position: absolute;
   z-index: 0;
   top: 0;
@@ -7,19 +7,19 @@
   left: 0;
 }
 
-@mixin centerX {
+@mixin center-x {
   position: absolute;
   left: 50%;
   transform: translate3d(-50%, 0%, 0);
 }
 
-@mixin centerY {
+@mixin center-y {
   position: absolute;
   top: 50%;
   transform: translate3d(0%, -50%, 0);
 }
 
-@mixin centerXY {
+@mixin center-xy {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -36,7 +36,7 @@
   }
 }
 
-@mixin sharpTranslate {
+@mixin sharp-translate {
   -webkit-filter: blur(0);
   filter:blur(radius);
   -webkit-font-smoothing: subpixel-antialiased;
