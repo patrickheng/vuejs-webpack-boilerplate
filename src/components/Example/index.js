@@ -39,7 +39,7 @@ export default Vue.extend({
     };
   },
 
-  ready() {console.log(count)},
+  ready() {},
 
   methods: {},
 
