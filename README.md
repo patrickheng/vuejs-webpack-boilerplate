@@ -1,4 +1,4 @@
-# VueJs Boilerplate - Babel / Webpack / Sass
+# VueJs Boilerplate - Babel / Webpack / SCSS
 
 ![Banner](http://i.imgur.com/kJepFbl.png)
 
@@ -6,17 +6,18 @@
 #### TECHNOLOGIES
 
 * VueJs
+* Vuex
 * EventEmitter
 * GSAP - TweenMax
 * Babel | ES2015
 * Webpack
 * ESLint
-* SASS
+* SCSS
 
 
 ##### EventManagerMixin
 
-EventManagerMixin handle Emitter events and DOM events easily. It will auto bind the context, and dettach the event when the component will unmount.
+EventManagerMixin handle Emitter events and DOM events easily. It will auto bind the context, and dettach events when the component will unmount.
 
 If you want to use the EventManager mixin, you need to define emitterEvents / domEvents in your vue component like so :
 
@@ -63,11 +64,8 @@ The project will be launched at http://localhost:3000/
 ```
 
 #### CONTRIBUTORS
-* [Fabien Motte](http://fabienmotte.com "Fabien Motte")
 * [Patrick Heng](http://hengpatrick.fr "Patrick Heng")
+* [Fabien Motte](http://fabienmotte.com "Fabien Motte")
 
 
-
-Hope you like it ¯\_(ツ)_/¯
-
-![Gif](https://media.giphy.com/media/yGEbmgiCJYu3u/giphy.gif)
+Hope you like it <3
