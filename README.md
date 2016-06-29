@@ -1,4 +1,4 @@
-# VueJs Boilerplate - Babel / Webpack / SCSS
+# VueJs Boilerplate - Babel / Vuex / Webpack / SCSS
 
 ![Banner](http://i.imgur.com/kJepFbl.png)
 
@@ -14,6 +14,25 @@
 * ESLint
 * SCSS
 
+##### Install dependancies :
+```shell
+  npm i
+```
+
+
+##### Launch the project :
+```shell
+  npm start
+```
+
+
+The project will be launched at http://localhost:3000/
+
+
+##### Build for production :
+```shell
+  npm run build
+```
 
 ##### EventManagerMixin
 
@@ -40,27 +59,6 @@ export default Vue.extend({
 
 ...
 }
-```
-
-
-##### Install dependancies :
-```shell
-  npm i
-```
-
-
-##### Launch the project :
-```shell
-  npm start
-```
-
-
-The project will be launched at http://localhost:3000/
-
-
-##### Build for production :
-```shell
-  npm run build
 ```
 
 #### CONTRIBUTORS

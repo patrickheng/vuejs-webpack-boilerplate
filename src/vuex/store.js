@@ -5,7 +5,6 @@ import exampleStore from 'vuex/example/store';
 import createLogger from 'vuex/logger';
 
 Vue.use(Vuex);
-Vue.config.debug = true;
 
 const debug = process.env.NODE_ENV !== 'production';
 

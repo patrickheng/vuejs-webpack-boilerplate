@@ -1,4 +1,4 @@
-import Emitter from 'core/Emitter';
+import Emitter from 'helpers/Emitter';
 
 /*
  *  ==== EventManagerMixin ====

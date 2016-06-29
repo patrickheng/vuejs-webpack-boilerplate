@@ -11,8 +11,8 @@ class States {
     this.browserName = browser.name;
 
     this.isDesktop = ( this.deviceType === 'desktop' );
-    this.isTablet = ( this.deviceType  === 'tablet' );
-    this.isMobile = ( this.deviceType  === 'mobile' );
+    this.isTablet  = ( this.deviceType  === 'tablet' );
+    this.isMobile  = ( this.deviceType  === 'mobile' );
   }
 
   getDeviceType() {

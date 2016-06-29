@@ -1,11 +1,6 @@
 import VueRouter from 'vue-router';
-import Emitter from 'core/Emitter';
 
 import HomePageComponent from 'containers/Homepage';
-
-import {
-  ROUTER_ROUTE_CHANGE
-} from 'config/messages';
 
 Vue.use( VueRouter );
 
@@ -33,12 +28,6 @@ class Router extends VueRouter {
         name: "home",
         component: HomePageComponent
       }
-
-    });
-
-    this.afterEach( ({ to, from } ) => {
-
-      Emitter.emit( ROUTER_ROUTE_CHANGE, { to, from } );
 
     });
   }
