@@ -9,7 +9,9 @@ import debounce from 'lodash.debounce';
 import store from 'vuex/store';
 
 import {
-  WINDOW_RESIZE
+  WINDOW_RESIZE,
+  WINDOW_ON_FOCUS,
+  WINDOW_ON_BLUR
 } from 'config/messages';
 
 export default Vue.extend({
@@ -25,7 +27,15 @@ export default Vue.extend({
   domEvents: [{
     target: window,
     event: 'resize',
-    method: 'onResize'
+    method: 'handleWindowResize'
+  },{
+    target: window,
+    event: 'blur',
+    method: 'handleWindowBlur'
+  },{
+    target: window,
+    event: 'focus',
+    method: 'handleWindowFocus'
   }],
 
   data() {
@@ -44,7 +54,7 @@ export default Vue.extend({
 
     bind() {
 
-      this.onResize = debounce(this.broadcastWindowSize, 200);
+      this.handleWindowResize = debounce(this.broadcastWindowSize, 200);
     },
 
     addBrowserClass() {
@@ -55,11 +65,16 @@ export default Vue.extend({
       this.$el.classList.add(States.deviceType + '-device');
     },
 
-    /*
-     * Resize
-     */
+    handleWindowBlur() {
+      this.emitter.emit( WINDOW_ON_BLUR );
+    },
+
+    handleWindowFocus() {
+      this.emitter.emit( WINDOW_ON_FOCUS );
+    },
+
     broadcastWindowSize() {
-      
+
       this.emitter.emit(WINDOW_RESIZE, {
         width: window.innerWidth,
         height: window.innerHeight
