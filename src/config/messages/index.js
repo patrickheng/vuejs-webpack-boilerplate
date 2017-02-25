@@ -1,7 +1,7 @@
 import global from './global';
 
 const messages = {
-  ...global
+  global
 };
 
 module.exports = messages;
