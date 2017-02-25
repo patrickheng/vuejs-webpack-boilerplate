@@ -47,17 +47,35 @@ export default {
       },
       {
         test: /\.css$/,
-        loader: 'css-loader',
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use : [{
+            loader: 'css-loader',
+            options: {
+                plugins: function () {
+                    return [
+                        require('autoprefixer')({ browsers: 'last 2 versions' })
+                    ];
+                }
+            }
+          }]
+        })
       },
       {
         test: /\.scss$/,
-        loader: 'sass-loader'
-      },
-      {
-        loader: 'autoprefixer-loader',
-        options : {
-          browsers : 'last 2 version'
-        }
+        use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [{
+              loader: 'sass-loader',
+              options: {
+                  plugins: function () {
+                      return [
+                          require('autoprefixer')({ browsers: 'last 2 versions' })
+                      ];
+                  }
+              }
+            }]
+        })
       }
     ]
   },
