@@ -14,44 +14,47 @@ export default {
     filename: '[name]-[hash].min.js'
   },
   resolve: {
-    root: path.resolve( __dirname, '..', 'src' ),
+    modules: [
+        path.join( __dirname, '..', 'src' )
+    ],
     alias: {
       'Container': 'helpers/Container'
     },
     extensions: [
-      '',
       '.js',
       '.jsx',
       '.json'
     ]
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.html?$/,
         exclude: /node_modules/,
-        loader: 'html'
+        loader: 'html-loader'
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        loader: 'babel-loader'
       },
       {
         test: /node_modules/,
-        loader: 'ify'
-      },
-      {
-        test: /\.json$/,
-        loader: 'json'
+        loader: 'ify-loader'
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style', 'css!autoprefixer?browsers=last 2 version')
+        loader: 'css-loader',
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style', 'css!autoprefixer?browsers=last 2 version!sass')
+        loader: 'sass-loader'
+      },
+      {
+        loader: 'autoprefixer-loader',
+        options : {
+          browsers : 'last 2 version'
+        }
       }
     ]
   },
@@ -61,7 +64,6 @@ export default {
       inject: 'body',
       filename: 'index.html'
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
@@ -77,12 +79,15 @@ export default {
     { ignore: ['.DS_Store', '.keep'] }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: false,
+        warnings: true,
         drop_console: true,
         pure_funcs: ['console.log']
       }
     }),
-    new ExtractTextPlugin('[name]-[hash].min.css', { allChunks: true }),
+    new ExtractTextPlugin({
+      filename : '[name]-[hash].min.css',
+      allChunks: true
+    }),
     new CleanWebpackPlugin(['dist'], { root: path.join(__dirname, '..') }),
     new StatsWebpackPlugin('webpack.stats.json')
   ]

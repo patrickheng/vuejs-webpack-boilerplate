@@ -16,53 +16,49 @@ export default {
     filename: 'bundle.js'
   },
   resolve: {
-    root: path.resolve( __dirname, '..', 'src' ),
+    modules: [
+      path.join( __dirname, '..', 'src' )
+    ],
     alias: {
       'Container': 'helpers/Container'
     },
     extensions: [
-      '',
       '.js',
       '.jsx',
       '.json'
     ]
   },
   module: {
-    preLoaders: [
+    rules: [
       {
-        test: /\.js?$/,
-        exclude: /node_modules/,
-        loader: 'eslint'
-      }
-    ],
-    loaders: [
+          test: /\.js?$/,
+          exclude: /node_modules/,
+          enforce: "pre",
+          loader: 'eslint-loader'
+      },
       {
         test: /\.html?$/,
         exclude: /node_modules/,
-        loader: 'html'
+        loader: 'html-loader'
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        loader: 'babel-loader'
       },
       {
         test: /node_modules/,
-        loader: 'ify'
-      },
-      {
-        test: /\.json$/,
-        loader: 'json'
+        loader: 'ify-loader'
       },
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        loaders: ['style', 'css']
+        loaders: 'css-loader'
       },
       {
         test: /\.scss$/,
         exclude: /node_modules/,
-        loaders: ['style', 'css', 'sass']
+        loaders: 'sass-loader'
       }
     ]
   },
@@ -72,7 +68,6 @@ export default {
       inject: 'body',
       filename: 'index.html'
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
