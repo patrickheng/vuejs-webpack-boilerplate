@@ -6,6 +6,10 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import StatsWebpackPlugin from 'stats-webpack-plugin';
 
+function resolve (dir) {
+    return path.join(__dirname, '..', dir)
+}
+
 export default {
   context: path.resolve(__dirname, '..'),
   entry: './src/main.js',
@@ -15,7 +19,8 @@ export default {
   },
   resolve: {
     modules: [
-        path.join( __dirname, '..', 'src' )
+        resolve('src'),
+        resolve('node_modules')
     ],
     alias: {
       'Container': 'helpers/Container'

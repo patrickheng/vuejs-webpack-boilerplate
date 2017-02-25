@@ -3,6 +3,10 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 
+function resolve (dir) {
+    return path.join(__dirname, '..', dir)
+}
+
 export default {
   context: path.resolve(__dirname, '..'),
   devtool: 'inline-source-map',
@@ -17,7 +21,8 @@ export default {
   },
   resolve: {
     modules: [
-      path.join( __dirname, '..', 'src' )
+        resolve('src'),
+        resolve('node_modules')
     ],
     alias: {
       'Container': 'helpers/Container'
@@ -47,7 +52,7 @@ export default {
         loader: 'babel-loader',
         options: {
             "presets": [["es2015", {"modules": false}]]
-        }
+        },
       },
       {
         test: /node_modules/,
