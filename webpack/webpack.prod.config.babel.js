@@ -36,7 +36,10 @@ export default {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        options: {
+            "presets": [["es2015", {"modules": false}]]
+        }
       },
       {
         test: /node_modules/,
@@ -64,7 +67,7 @@ export default {
       inject: 'body',
       filename: 'index.html'
     }),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       '__DEV__': JSON.stringify(false),
