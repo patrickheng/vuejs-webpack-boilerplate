@@ -66,6 +66,16 @@ export default {
         use: ExtractTextPlugin.extract({
             fallback: 'style-loader',
             use: [{
+              loader: 'css-loader',
+              options: {
+                  plugins: function () {
+                      return [
+                          require('autoprefixer')({ browsers: 'last 2 versions' })
+                      ];
+                  }
+              }
+            },
+            {
               loader: 'sass-loader',
               options: {
                   plugins: function () {
