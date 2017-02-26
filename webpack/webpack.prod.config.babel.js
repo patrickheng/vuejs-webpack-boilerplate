@@ -6,6 +6,10 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import StatsWebpackPlugin from 'stats-webpack-plugin';
 
+function resolve (dir) {
+    return path.join(__dirname, '..', dir)
+}
+
 export default {
   context: path.resolve(__dirname, '..'),
   entry: './src/main.js',
@@ -14,44 +18,79 @@ export default {
     filename: '[name]-[hash].min.js'
   },
   resolve: {
-    root: path.resolve( __dirname, '..', 'src' ),
+    modules: [
+        resolve('src'),
+        resolve('node_modules')
+    ],
     alias: {
       'Container': 'helpers/Container'
     },
     extensions: [
-      '',
       '.js',
       '.jsx',
       '.json'
     ]
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.html?$/,
         exclude: /node_modules/,
-        loader: 'html'
+        loader: 'html-loader'
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        loader: 'babel-loader',
+        options: {
+            "presets": [["es2015", {"modules": false}]]
+        }
       },
       {
         test: /node_modules/,
-        loader: 'ify'
-      },
-      {
-        test: /\.json$/,
-        loader: 'json'
+        loader: 'ify-loader'
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style', 'css!autoprefixer?browsers=last 2 version')
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use : [{
+            loader: 'css-loader',
+            options: {
+                plugins: function () {
+                    return [
+                        require('autoprefixer')({ browsers: 'last 2 versions' })
+                    ];
+                }
+            }
+          }]
+        })
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style', 'css!autoprefixer?browsers=last 2 version!sass')
+        use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [{
+              loader: 'css-loader',
+              options: {
+                  plugins: function () {
+                      return [
+                          require('autoprefixer')({ browsers: 'last 2 versions' })
+                      ];
+                  }
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                  plugins: function () {
+                      return [
+                          require('autoprefixer')({ browsers: 'last 2 versions' })
+                      ];
+                  }
+              }
+            }]
+        })
       }
     ]
   },
@@ -61,8 +100,7 @@ export default {
       inject: 'body',
       filename: 'index.html'
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       '__DEV__': JSON.stringify(false),
@@ -77,12 +115,15 @@ export default {
     { ignore: ['.DS_Store', '.keep'] }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: false,
+        warnings: true,
         drop_console: true,
         pure_funcs: ['console.log']
       }
     }),
-    new ExtractTextPlugin('[name]-[hash].min.css', { allChunks: true }),
+    new ExtractTextPlugin({
+      filename : '[name]-[hash].min.css',
+      allChunks: true
+    }),
     new CleanWebpackPlugin(['dist'], { root: path.join(__dirname, '..') }),
     new StatsWebpackPlugin('webpack.stats.json')
   ]

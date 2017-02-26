@@ -24,7 +24,6 @@ const EventManagerMixin = {
   },
 
   beforeDestroy() {
-
     this.removeEventListeners();
   },
 
