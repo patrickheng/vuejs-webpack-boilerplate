@@ -64,6 +64,7 @@ export default Vue.extend({
 #### CONTRIBUTORS
 * [Patrick Heng](http://hengpatrick.fr "Patrick Heng")
 * [Fabien Motte](http://fabienmotte.com "Fabien Motte")
+* [Nox](https://github.com/3kynox "3kynox")
 
 
 Hope you like it <3
