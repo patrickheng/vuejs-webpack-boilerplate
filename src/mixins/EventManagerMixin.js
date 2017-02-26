@@ -37,7 +37,7 @@ const EventManagerMixin = {
           console.error('Missing method attribute for ', this);
           /*eslint-enable */
         } else {
-          this[event.method] = this[event.method];
+          this[event.method] = ::this[event.method];
         }
       });
     },
