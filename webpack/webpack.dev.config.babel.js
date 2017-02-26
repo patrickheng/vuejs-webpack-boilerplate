@@ -61,12 +61,25 @@ export default {
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        loaders: 'css-loader'
+        use: [{
+          loader: 'style-loader'
+        },
+        {
+          loader: 'css-loader'
+        }]
       },
       {
         test: /\.scss$/,
         exclude: /node_modules/,
-        loaders: 'sass-loader'
+        use: [{
+          loader: 'style-loader'
+        },
+        {
+          loader: 'css-loader'
+        },
+        {
+          loader: 'sass-loader'
+        }]
       }
     ]
   },
