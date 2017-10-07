@@ -1,4 +1,7 @@
-# VueJs Boilerplate - Babel / Vuex / Webpack / SCSS
+# [ OUTDATED ] VueJs Boilerplate - Babel / Vuex / Webpack / SCSS
+
+## Warning
+This boilerplate is no longer updated. 
 
 ![Banner](http://i.imgur.com/kJepFbl.png)
 
